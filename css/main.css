@@ -207,3 +207,12 @@
 .main_slide .slick-dots>li button {
     display: none;
 }
+
+#menu_slide {
+    padding-top: 100px;
+}
+
+#menu_slide .inner {
+    width: 1200px;
+    margin: 0 auto;
+}
