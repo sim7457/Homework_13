@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1. URLSearchParams 객체 생성
+        const url = new URLSearchParams(window.location.search);
+        // 2. 값 가져오기
+        console.log(url.get('movieId'));
+        // https://blog.jeongwoo.in/javascript-url%EC%9D%98-%ED%8C%8C%EB%9D%BC%EB%AF%B8%ED%84%B0-%EA%B0%92%EC%9D%84-%ED%99%95%EC%9D%B8%ED%95%98%EA%B3%A0-%EC%8B%B6%EC%9D%84%EB%95%8C-urlsearchparams-28b44c2036fa
+    
+        // URL = https://http://www.google.co.kr/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=html5
+
+        // alert(window.location.hash);     // "#q=html5"
+        // alert(window.location.host);     // "www.google.co.kr"
+        // alert(window.location.hostname); // "www.google.co.kr"
+        // alert(window.location.href);     // "https://www.google.co.kr/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=html5"
+        // alert(window.location.origin);    // "https://www.google.co.kr"
+        // alert(window.location.pathname); // "/webhp"
+        // alert(window.location.port);     // "" (port number)
+        // alert(window.location.protocol);  // "https:"
+        // alert(window.location.search);   // "?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8"
+
+        // window.location.reload();   // webpage reloaded
+        // window.location.replace();  // 나중에 따로 다루기로 함.
+        // window.location.toString(); // .href와 같은 결과가 나옴.
+
+        // https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams
+    
+    </script>
+</body>
+
+</html>

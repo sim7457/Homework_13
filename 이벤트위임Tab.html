@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .c>li {
+            display: none;
+        }
+
+        .c>li.on {
+            display: block;
+        }
+
+        .m>li.on {
+            color: tomato;
+        }
+    </style>
+</head>
+
+<body>
+
+    <ul class="m">
+        <li class="on">menu01</li>
+        <li>menu02</li>
+        <li>menu03</li>
+    </ul>
+    <ul class="c">
+        <li class="on">content01</li>
+        <li>content02</li>
+        <li>content03</li>
+    </ul>
+    <script>
+        const M = document.querySelector('.m');
+        const C = document.querySelector('.c');
+        let g;
+        let t;
+        const TAB = e => {
+            let tg = e.target;
+            let idx = [...M.children].indexOf(tg);
+            // !g && ([...M.children][0].classList.remove('on'), [...C.children][0].classList.remove('on'));
+            //  g && g.classList.remove('on');
+            //  g && t.classList.remove('on');
+            g
+                ? (g.classList.remove('on'), t.classList.remove('on'))
+                : ([...M.children].forEach(it => it.classList.remove('on')),
+                    [...C.children].forEach(it => it.classList.remove('on')));
+            tg.classList.add('on');
+            [...C.children][idx].classList.add('on');
+            g = tg;
+            t = [...C.children][idx];
+        }
+        M.addEventListener('click', TAB);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul id="movie"></ul>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        const url = 'https://yts.mx/api/v2/list_movies.json?query_term=2022&limit=50';
+        const getData = axios.get(url);
+        // const getData = fetch(url).then(r => r.json()); 
+        // axios라이버러리는 json()함수가 기본으로 실행된 데이터를 data객체에 담는다.
+
+
+        const writeMovie = (r) => {
+            console.log(r);
+            for (it of r) {
+                movie.innerHTML += `<li>${it.id}</li>`
+            }
+        }
+
+        const getMovie = async () => {
+            const r = await getData;
+            const { data: {
+                data: {
+                    movies
+                }
+            } } = r;
+            // const movies = r.data.data.movies ('' )를 비구조 할당 한 것...
+            return writeMovie(movies)
+        }
+
+        getMovie();
+
+        // const getMovie = new Promise((res, rej) => {
+        //     res(r)
+        // });
+
+        // const writeMovie = (r) => {
+        //     console.log(r);
+        //     for (it of r) {
+        //         movie.innerHTML += `<li>${it.id}</li>`
+        //     }
+        // }
+
+        // getMovie
+        //     .then(r => r.data.movies)
+        //     .then(writeMovie)
+    </script>
+</body>
+
+</html>

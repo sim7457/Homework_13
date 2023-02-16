@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+
+</head>
+
+<body>
+    <ul id="movie"></ul>
+    <script>
+        var url = 'https://yts.mx/api/v2/list_movies.json?query_term=2022&limit=50';
+        var getData = $.get(url, function (res) {
+            console.log(res.data.movies);
+            var r = res.data.movies;
+            $.each(r, function (idx, it) {
+                $('#movie').append('<li><img src="' + it.large_cover_image + '"/></li>')
+            });
+        });
+
+
+
+
+        // function writeMovie(r) {
+        //     $.each(r, function (idx, it) {
+        //         $('#movie').append('<li><img src="' + it.large_cover_image + '"/></li>')
+        //     });
+        // }
+
+        // const getMovie = async () => {
+        //     const r = await getData;
+        //     const m = r.data.movies;
+        //     writeMovie(m)
+        // }
+
+        // getMovie();
+
+        // const getMovie = new Promise((res, rej) => {
+        //     res(r)
+        // });
+
+        // const writeMovie = (r) => {
+        //     console.log(r);
+        //     for (it of r) {
+        //         movie.innerHTML += `<li>${it.id}</li>`
+        //     }
+        // }
+
+        // getMovie
+        //     .then(r => r.data.movies)
+        //     .then(writeMovie)
+    </script>
+</body>
+
+</html>
